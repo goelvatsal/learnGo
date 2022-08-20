@@ -1,12 +1,8 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import "os"
+import "fmt"
+import "strconv"
 
 // ---------------------------------------------------------
 // CHALLENGE #1
@@ -34,4 +30,20 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	l := len(os.Args) - 1
+
+	if l < 2 {
+		fmt.Println("Usage: [username] [password]")
+		return
+	}
+
+	un, pw := "jack", 1888
+
+	if os.Args[1] != un {
+		fmt.Printf("Access denied to %q.\n", os.Args[1])
+	} else if os.Args[2] != strconv.Itoa(pw) {
+		fmt.Printf("Invalid password for %q.\n", os.Args[1])
+	} else {
+		fmt.Printf("Access granted to %q.\n", os.Args[1])
+	}
 }

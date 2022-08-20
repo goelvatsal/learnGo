@@ -1,11 +1,3 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
 
 import (
@@ -51,6 +43,8 @@ const (
 	accessOK = "Access granted to %q.\n"
 	user     = "jack"
 	pass     = "1888"
+	user2    = "inanc"
+	pass2    = "1879"
 )
 
 func main() {
@@ -63,9 +57,9 @@ func main() {
 
 	u, p := args[1], args[2]
 
-	if u != user {
+	if u != user && u != user2 {
 		fmt.Printf(errUser, u)
-	} else if p != pass {
+	} else if p != pass && p != pass2 {
 		fmt.Printf(errPwd, u)
 	} else {
 		fmt.Printf(accessOK, u)
