@@ -1,11 +1,3 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
 
 import "fmt"
@@ -30,7 +22,7 @@ func main() {
 	// \\ equals to backslash character
 	// \n equals to newline character
 
-	path := "c:\\program files\\duper super\\fun.txt\n" +
-		"c:\\program files\\really\\funny.png"
+	path := `c:\program files\duper super\fun.txt 
+c:\program files\really\funny.png`
 	fmt.Println(path)
 }
