@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c435f187-f061-4d05-80ed-96eb3722d8cf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/01-windows-path/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/01-windows-path/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/02-print-json/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/02-print-json/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/03-raw-concat/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/03-raw-concat/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/04-count-the-chars/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/04-count-the-chars/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/05-improved-banger/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/05-improved-banger/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/06-tolowercase/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/06-tolowercase/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/07-trim-it/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/07-trim-it/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/08-right-trim-it/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/08-right-trim-it/main.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" url="file:///usr/local/opt/go/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Dd84YGREHTGNe21CHnRmVDtExE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/goel01/learngo/08-numbers-and-strings/02-strings/exercises"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises" />
+      <recent name="$PROJECT_DIR$/06-variables/05-type-conversion/exercises" />
+      <recent name="$PROJECT_DIR$/06-variables/04-assignment/exercises" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>
