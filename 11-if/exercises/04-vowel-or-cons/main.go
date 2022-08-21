@@ -47,16 +47,18 @@ import "strings"
 func main() {
 	l := len(os.Args) - 1
 
-	if l != 1 || len(os.Args[1]) != 1 {
+	args := os.Args[1]
+
+	if l != 1 || len(args) != 1 {
 		fmt.Println("Give me a letter")
 		return
 	}
 
-	if strings.IndexAny(os.Args[1], "aeiou") == 0 {
-		fmt.Printf("%q is a vowel.\n", os.Args[1])
-	} else if strings.IndexAny(os.Args[1], "yw") == 0 {
-		fmt.Printf("%q is sometimes a vowel, sometimes not.\n", os.Args[1])
+	if strings.IndexAny(args, "aeiou") == 0 {
+		fmt.Printf("%q is a vowel.\n", args)
+	} else if strings.IndexAny(args, "yw") == 0 {
+		fmt.Printf("%q is sometimes a vowel, sometimes not.\n", args)
 	} else {
-		fmt.Printf("%q is a consonant.\n", os.Args[1])
+		fmt.Printf("%q is a consonant.\n", args)
 	}
 }

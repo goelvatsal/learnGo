@@ -25,15 +25,15 @@ import "os"
 // ---------------------------------------------------------
 
 func main() {
-	l := len(os.Args) - 1
+	lenOs := len(os.Args) - 1
 
-	if l == 0 {
+	if lenOs == 0 {
 		fmt.Println("Give me args")
-	} else if l == 1 {
+	} else if lenOs == 1 {
 		fmt.Printf("There is one: %q\n", os.Args[1])
-	} else if l == 2 {
+	} else if lenOs == 2 {
 		fmt.Printf("There are two: \"%s %s\"\n", os.Args[1], os.Args[2])
-	} else if l > 2 {
-		fmt.Printf("There are %d arguments.\n", l)
+	} else if lenOs > 2 {
+		fmt.Printf("There are %d arguments.\n", lenOs)
 	}
 }

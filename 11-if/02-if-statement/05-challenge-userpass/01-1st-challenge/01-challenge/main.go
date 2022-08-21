@@ -30,9 +30,9 @@ import "strconv"
 // ---------------------------------------------------------
 
 func main() {
-	l := len(os.Args) - 1
+	lenOs := len(os.Args) - 1
 
-	if l < 2 {
+	if lenOs < 2 {
 		fmt.Println("Usage: [username] [password]")
 		return
 	}
