@@ -1,14 +1,9 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Raw Concat
@@ -34,12 +29,12 @@ import "fmt"
 
 func main() {
 	// uncomment the code below
-	// name := "and get the name from the command-line"
+	name := os.Args[1]
 
 	// replace and concatenate the `name` variable
 	// after `hi ` below
 
-	msg := `hi CONCATENATE-NAME-VARIABLE-HERE!
+	msg := `hi ` + name + `!
 how are you?`
 
 	fmt.Println(msg)
