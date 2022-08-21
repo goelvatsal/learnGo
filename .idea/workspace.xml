@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c435f187-f061-4d05-80ed-96eb3722d8cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/01-windows-path/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/01-windows-path/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/02-print-json/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/02-print-json/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/03-raw-concat/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/03-raw-concat/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/04-count-the-chars/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/04-count-the-chars/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/05-improved-banger/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/05-improved-banger/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/06-tolowercase/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/06-tolowercase/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/07-trim-it/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/07-trim-it/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/08-right-trim-it/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises/08-right-trim-it/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="c435f187-f061-4d05-80ed-96eb3722d8cf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,20 +25,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/Users/goel01/learngo/08-numbers-and-strings/02-strings/exercises"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/goel01/learngo/08-numbers-and-strings/02-strings/exercises&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises" />
