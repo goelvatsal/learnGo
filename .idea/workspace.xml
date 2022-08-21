@@ -25,23 +25,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/goel01/learngo/08-numbers-and-strings/02-strings/exercises&quot;
-  }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/08-numbers-and-strings/02-strings/exercises" />
       <recent name="$PROJECT_DIR$/06-variables/05-type-conversion/exercises" />
       <recent name="$PROJECT_DIR$/06-variables/04-assignment/exercises" />
     </key>
