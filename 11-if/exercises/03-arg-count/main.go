@@ -1,12 +1,7 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import "fmt"
+import "os"
 
 // ---------------------------------------------------------
 // EXERCISE: Arg Count
@@ -30,4 +25,15 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	lenOs := len(os.Args) - 1
+
+	if lenOs == 0 {
+		fmt.Println("Give me args")
+	} else if lenOs == 1 {
+		fmt.Printf("There is one: %q\n", os.Args[1])
+	} else if lenOs == 2 {
+		fmt.Printf("There are two: \"%s %s\"\n", os.Args[1], os.Args[2])
+	} else if lenOs > 2 {
+		fmt.Printf("There are %d arguments.\n", lenOs)
+	}
 }

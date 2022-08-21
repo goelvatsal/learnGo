@@ -1,12 +1,8 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import "fmt"
+import "os"
+import "strings"
 
 // ---------------------------------------------------------
 // EXERCISE: Vowel or Consonant
@@ -49,4 +45,20 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	l := len(os.Args) - 1
+
+	args := os.Args[1]
+
+	if l != 1 || len(args) != 1 {
+		fmt.Println("Give me a letter")
+		return
+	}
+
+	if strings.IndexAny(args, "aeiou") == 0 {
+		fmt.Printf("%q is a vowel.\n", args)
+	} else if strings.IndexAny(args, "yw") == 0 {
+		fmt.Printf("%q is sometimes a vowel, sometimes not.\n", args)
+	} else {
+		fmt.Printf("%q is a consonant.\n", args)
+	}
 }
