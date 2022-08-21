@@ -30,7 +30,7 @@ import "strconv"
 // ---------------------------------------------------------
 
 func main() {
-	lenOs := len(os.Args) - 1
+	lenOs, args := len(os.Args)-1, os.Args
 
 	if lenOs < 2 {
 		fmt.Println("Usage: [username] [password]")
@@ -39,11 +39,11 @@ func main() {
 
 	un, pw := "jack", 1888
 
-	if os.Args[1] != un {
-		fmt.Printf("Access denied to %q.\n", os.Args[1])
-	} else if os.Args[2] != strconv.Itoa(pw) {
-		fmt.Printf("Invalid password for %q.\n", os.Args[1])
+	if args[1] != un {
+		fmt.Printf("Access denied to %q.\n", args[1])
+	} else if args[2] != strconv.Itoa(pw) {
+		fmt.Printf("Invalid password for %q.\n", args[1])
 	} else {
-		fmt.Printf("Access granted to %q.\n", os.Args[1])
+		fmt.Printf("Access granted to %q.\n", args[1])
 	}
 }
