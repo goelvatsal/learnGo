@@ -1,12 +1,10 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Break Up
@@ -28,4 +26,57 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	args := os.Args[1:]
+
+	if len(args) < 2 {
+		fmt.Println("Please pass min and max integers.")
+		return
+	}
+
+	min, err := strconv.Atoi(args[0])
+
+	if err != nil {
+		fmt.Printf("Either %q or %q is not an integer.\n", args[0], args[1])
+	}
+
+	max, err := strconv.Atoi(args[1])
+
+	if err != nil {
+		fmt.Printf("Either %q or %q is not an integer.\n", args[0], args[1])
+	}
+
+	if min > max {
+		fmt.Printf("The max integer is less than the min integer.\n")
+		return
+	}
+
+	i := min
+	var sum int
+	for {
+		if i >= max {
+			break
+		}
+
+		isEven := i%2 == 0
+
+		if i != max && isEven {
+			fmt.Printf("%d ", i)
+
+			if i != max-1 {
+				fmt.Printf("+ ")
+			}
+		}
+
+		if isEven {
+			sum += i
+		}
+		i++
+	}
+
+	if max%2 == 0 {
+		fmt.Printf("%d ", max)
+		sum += i
+	}
+
+	fmt.Println("=", sum)
 }

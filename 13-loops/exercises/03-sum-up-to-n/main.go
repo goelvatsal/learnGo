@@ -1,12 +1,10 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Sum up to N
@@ -36,4 +34,33 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	if len(os.Args)-1 != 2 {
+		fmt.Println("Please pass min and max integers.")
+		return
+	}
+
+	var sum int
+
+	min, errMin := strconv.Atoi(os.Args[1])
+	max, errMax := strconv.Atoi(os.Args[2])
+
+	if min > max {
+		fmt.Printf("The max integer is less than the min integer.\n")
+		return
+	}
+
+	if errMin != nil || errMax != nil {
+		fmt.Printf("Either %q or %q is not an integer.\n", os.Args[1], os.Args[2])
+		return
+	}
+
+	for i := min; i <= max; i++ {
+		sum += i
+
+		fmt.Printf("%d ", i)
+		if i != max {
+			fmt.Printf("+ ")
+		}
+	}
+	fmt.Println("=", sum)
 }
