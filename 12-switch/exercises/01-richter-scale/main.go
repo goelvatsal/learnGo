@@ -1,12 +1,10 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 // ---------------------------------------------------------
 // STORY
@@ -71,4 +69,36 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	if len(os.Args) != 2 {
+		fmt.Println("Give me the magnitude of the earthquake.")
+		return
+	}
+
+	n, err := strconv.ParseFloat(os.Args[1], 64)
+
+	if err != nil {
+		fmt.Printf("%s is not a number.\n", os.Args[1])
+		return
+	}
+
+	switch {
+	case n < 2.0:
+		fmt.Printf("%g is a micro earthquake.\n", n)
+	case n < 3.0 && n >= 2.0:
+		fmt.Printf("%g is a very minor earthquake.\n", n)
+	case n < 4.0 && n >= 3.0:
+		fmt.Printf("%g is a minor earthquake.\n", n)
+	case n < 5.0 && n >= 4.0:
+		fmt.Printf("%g is a light earthquake.\n", n)
+	case n < 6.0 && n >= 5.0:
+		fmt.Printf("%g is a moderate earthquake.\n", n)
+	case n < 7.0 && n >= 6.0:
+		fmt.Printf("%g is a strong earthquake.\n", n)
+	case n < 8.0 && n >= 7.0:
+		fmt.Printf("%g is a major earthquake.\n", n)
+	case n < 10.0 && n >= 7.0:
+		fmt.Printf("%g is a great earthquake.\n", n)
+	case n >= 10:
+		fmt.Printf("%g is a massive earthquake.\n", n)
+	}
 }
