@@ -104,24 +104,25 @@ import (
 // ---------------------------------------------------------
 
 func main() {
-	args := os.Args[1:]
+	argOne := os.Args[1]
+	argTwo := os.Args[2]
 
-	if len(args) != 2 {
+	if len(os.Args) != 2 {
 		fmt.Println("Usage: [op=*/+-] [size]")
 		return
 	}
 
-	if strings.IndexAny(args[0], "*") == 0 {
-		n, _ := strconv.Atoi(args[1])
-		multable(n)
-	} else if strings.IndexAny(args[0], "/") == 0 {
-		n, _ := strconv.Atoi(args[1])
+	if strings.IndexAny(argOne, "*") == 0 {
+		n, _ := strconv.Atoi(argTwo)
+		mulTable(n)
+	} else if strings.IndexAny(argOne, "/") == 0 {
+		n, _ := strconv.Atoi(argTwo)
 		divTable(n)
-	} else if strings.IndexAny(args[0], "+") == 0 {
-		n, _ := strconv.Atoi(args[1])
+	} else if strings.IndexAny(argOne, "+") == 0 {
+		n, _ := strconv.Atoi(argTwo)
 		addTable(n)
-	} else if strings.IndexAny(args[0], "-") == 0 {
-		n, _ := strconv.Atoi(args[1])
+	} else if strings.IndexAny(argOne, "-") == 0 {
+		n, _ := strconv.Atoi(argTwo)
 		subTable(n)
 	} else {
 		fmt.Println("Invalid operator.\nValid ops one of: */+-")
@@ -130,7 +131,7 @@ func main() {
 
 }
 
-func multable(n int) int {
+func mulTable(n int) int {
 	fmt.Printf("%5s", "*")
 
 	for i := 0; i <= n; i++ {

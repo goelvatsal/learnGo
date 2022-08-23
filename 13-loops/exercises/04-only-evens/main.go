@@ -33,18 +33,18 @@ func main() {
 	}
 
 	min, err := strconv.Atoi(args[0])
-
 	if err != nil {
-		fmt.Printf("Either %q or %q is not an integer.\n", args[0], args[1])
+		fmt.Printf("%q is not an integer.\n", args[0])
+		return
 	}
 
 	max, err := strconv.Atoi(args[1])
-
 	if err != nil {
-		fmt.Printf("Either %q or %q is not an integer.\n", args[0], args[1])
+		fmt.Printf("%q is not an integer.\n", args[1])
+		return
 	}
 
-	if min > max {
+	if max < min {
 		fmt.Printf("The max integer is less than the min integer.\n")
 		return
 	}
@@ -58,12 +58,11 @@ func main() {
 			if i != max-1 {
 				fmt.Printf("+ ")
 			}
+		} else if !isEven {
+			continue
 		}
 
-		// sum even numbers
-		if isEven {
-			sum += i
-		}
+		sum += i
 	}
 
 	// what is being done here?

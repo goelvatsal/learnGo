@@ -42,15 +42,19 @@ func main() {
 	var sum int
 
 	min, errMin := strconv.Atoi(os.Args[1])
-	max, errMax := strconv.Atoi(os.Args[2])
-
-	if min > max {
-		fmt.Printf("The max integer is less than the min integer.\n")
+	if errMin != nil {
+		fmt.Printf("%q is not an integer.\n", os.Args[1])
 		return
 	}
 
-	if errMin != nil || errMax != nil {
-		fmt.Printf("Either %q or %q is not an integer.\n", os.Args[1], os.Args[2])
+	max, errMax := strconv.Atoi(os.Args[2])
+	if errMax != nil {
+		fmt.Printf("%q is not an integer.\n", os.Args[2])
+		return
+	}
+
+	if min > max {
+		fmt.Printf("The max integer is less than the min integer.\n")
 		return
 	}
 

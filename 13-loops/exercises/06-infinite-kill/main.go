@@ -55,7 +55,7 @@ func main() {
 	c := []string{"\\", "-", "/", "|"}
 
 	for {
-		i := rand.Intn(4)
+		i := rand.Intn(len(c))
 		fmt.Printf("\r%s Please Wait. Processing....", c[i])
 		time.Sleep(250 * time.Millisecond)
 	}
