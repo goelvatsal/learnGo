@@ -1,12 +1,10 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Crunch the primes
@@ -34,4 +32,49 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	args := os.Args[1:]
+
+	for _, q := range args {
+		c, err := strconv.Atoi(q)
+		if err != nil {
+			continue
+		}
+
+		isPrime(c)
+	}
+	fmt.Println()
+}
+
+func isPrime(n int) int {
+	if n == 1 {
+	} else if n == 2 {
+		fmt.Printf("%d ", n)
+	} else if n == 3 {
+		fmt.Printf("%d ", n)
+	}
+
+	if n%2 == 0 {
+		return 0
+	} else if n%3 == 0 {
+		return 0
+	}
+
+	i := 5
+	w := 2
+
+	for {
+		if i*i <= n {
+			if n%i == 0 {
+				return 0
+			}
+		} else {
+			break
+		}
+	}
+
+	i += w
+	w = 6 - w
+	fmt.Printf("%d ", n)
+
+	return 0
 }
