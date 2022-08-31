@@ -19,11 +19,11 @@ import (
 // ---------------------------------------------------------
 // EXERCISE: Double Guesses
 //
-//  Let the player guess1 two numbers instead of one.
+//  Let the player guess two numbers instead of one.
 //
 // HINT:
 //  Generate random numbers using the greatest number
-//  among the guess1ed numbers.
+//  among the guessed numbers.
 //
 // EXAMPLES
 //  go run main.go 5 6
@@ -35,7 +35,7 @@ const (
 	usage    = `Welcome to the Lucky Number Game! 🍀
 
 The program will pick %d random numbers.
-Your mission is to guess1 one of those numbers.
+Your mission is to guess one of those numbers.
 
 The greater your number is, harder it gets.
 
@@ -45,7 +45,6 @@ Wanna play?
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-
 	args := os.Args[1:]
 
 	if len(args) != 2 {
@@ -53,33 +52,34 @@ func main() {
 		return
 	}
 
-	guess1, err1 := strconv.Atoi(args[0])
+	var err error
+	g1, err := strconv.Atoi(args[0])
 
-	if err1 != nil {
+	if err != nil {
 		fmt.Println("Not a number.")
 		return
 	}
 
-	guess2, err2 := strconv.Atoi(args[1])
-	if err2 != nil {
+	g2, err := strconv.Atoi(args[1])
+	if err != nil {
 		fmt.Println("Not a number.")
 		return
 	}
 
-	if guess1 < 0 || guess2 < 0 {
+	if g1 < 0 || g2 < 0 {
 		fmt.Println("Please pick a positive number.")
 		return
 	}
 
-	min := guess1
-	if guess1 < guess2 {
-		min = guess2
+	min := g1
+	if g1 < g2 {
+		min = g2
 	}
 
-	for turn := 0; turn < maxTurns; turn++ {
+	for t := 0; t < maxTurns; t++ {
 		n := rand.Intn(min + 1)
 
-		if n == guess1 || n == guess2 {
+		if n == g1 || n == g2 {
 			fmt.Println("🎉  YOU WIN!")
 			return
 		}

@@ -60,10 +60,10 @@ Wanna play?
 		return
 	}
 
-	for turn := 0; turn < maxTurns; turn++ {
+	for t := 0; t < maxTurns; t++ {
 		n := rand.Intn(guess + 1)
 
-		if n == guess && turn == 0 {
+		if n == guess && t == 0 {
 			fmt.Println("YOU GUESSED CORRECTLY FIRST TRY!!")
 			fmt.Println("🎉  YOU WIN!")
 			return
