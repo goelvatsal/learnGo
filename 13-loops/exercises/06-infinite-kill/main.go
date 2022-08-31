@@ -1,12 +1,10 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Infinite Kill
@@ -53,4 +51,12 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
+	c := []string{"\\", "-", "/", "|"}
+
+	for {
+		i := rand.Intn(len(c))
+		fmt.Printf("\r%s Please Wait. Processing....", c[i])
+		time.Sleep(250 * time.Millisecond)
+	}
 }

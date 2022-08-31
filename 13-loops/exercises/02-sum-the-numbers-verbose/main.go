@@ -1,12 +1,6 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import "fmt"
 
 // ---------------------------------------------------------
 // EXERCISE: Sum the Numbers: Verbose Edition
@@ -25,5 +19,18 @@ package main
 //    1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 = 55
 // ---------------------------------------------------------
 
+const max = 10
+
 func main() {
+	var sum int
+
+	for i := 1; i <= max; i++ {
+		sum += i
+
+		fmt.Printf("%d ", i)
+		if i != max {
+			fmt.Printf("+ ")
+		}
+	}
+	fmt.Println("=", sum)
 }

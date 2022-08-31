@@ -1,12 +1,10 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Dynamic Table
@@ -54,4 +52,32 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	if len(os.Args) != 2 {
+		fmt.Println("Please input a integer.")
+		return
+	}
+
+	n, err := strconv.Atoi(os.Args[1])
+
+	if err != nil {
+		fmt.Printf("%q is not an integer.\n", os.Args[1])
+		return
+	}
+
+	fmt.Printf("%5s", "X")
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+	}
+	fmt.Println()
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+
+		for j := 0; j <= n; j++ {
+			fmt.Printf("%5d", i*j)
+		}
+
+		fmt.Println()
+	}
 }

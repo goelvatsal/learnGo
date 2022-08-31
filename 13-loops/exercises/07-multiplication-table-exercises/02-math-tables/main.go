@@ -1,12 +1,11 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Math Tables
@@ -105,4 +104,104 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	argOne := os.Args[1]
+	argTwo := os.Args[2]
+
+	if len(os.Args) != 2 {
+		fmt.Println("Usage: [op=*/+-] [size]")
+		return
+	}
+
+	if strings.IndexAny(argOne, "*") == 0 {
+		n, _ := strconv.Atoi(argTwo)
+		mulTable(n)
+	} else if strings.IndexAny(argOne, "/") == 0 {
+		n, _ := strconv.Atoi(argTwo)
+		divTable(n)
+	} else if strings.IndexAny(argOne, "+") == 0 {
+		n, _ := strconv.Atoi(argTwo)
+		addTable(n)
+	} else if strings.IndexAny(argOne, "-") == 0 {
+		n, _ := strconv.Atoi(argTwo)
+		subTable(n)
+	} else {
+		fmt.Println("Invalid operator.\nValid ops one of: */+-")
+		return
+	}
+
+}
+
+func mulTable(n int) int {
+	fmt.Printf("%5s", "*")
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+	}
+	fmt.Println()
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+		for j := 0; j <= n; j++ {
+			fmt.Printf("%5d", j*i)
+		}
+		fmt.Println()
+	}
+	return 0
+}
+
+func divTable(n int) int {
+	fmt.Printf("%5s", "/")
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+	}
+	fmt.Println()
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+		for j := 0; j <= n; j++ {
+			if j == 0 {
+				fmt.Printf("%5v", "0")
+				continue
+			}
+			fmt.Printf("%5d", i/j)
+		}
+		fmt.Println()
+	}
+	return 0
+}
+
+func subTable(n int) int {
+	fmt.Printf("%5s", "-")
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+	}
+	fmt.Println()
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+		for j := 0; j <= n; j++ {
+			fmt.Printf("%5d", i-j)
+		}
+		fmt.Println()
+	}
+	return 0
+}
+
+func addTable(n int) int {
+	fmt.Printf("%5s", "+")
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+	}
+	fmt.Println()
+
+	for i := 0; i <= n; i++ {
+		fmt.Printf("%5d", i)
+		for j := 0; j <= n; j++ {
+			fmt.Printf("%5d", j+i)
+		}
+		fmt.Println()
+	}
+	return 0
 }
