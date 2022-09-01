@@ -1,12 +1,6 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import "fmt"
 
 // ---------------------------------------------------------
 // EXERCISE: Assign the Arrays
@@ -42,4 +36,19 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	books := [3]string{"Kafka's Revenge", "Stay Golden", "Everythingship"}
+
+	lower := books
+	lower[0] = "kafka's revenge"
+	lower[1] = "stay golden"
+	lower[2] = "everythingship"
+
+	upper := books
+	upper[0] = "KAFKA'S REVENGE"
+	upper[1] = "STAY GOLDEN"
+	upper[2] = "EVERYTHINGSHIP"
+
+	fmt.Println("books:", books)
+	fmt.Println("upper:", upper)
+	fmt.Println("lower:", lower)
 }
