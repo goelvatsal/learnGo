@@ -1,12 +1,6 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import "fmt"
 
 // ---------------------------------------------------------
 // EXERCISE: Declare empty arrays
@@ -59,4 +53,33 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	var (
+		names     [3]string
+		distances [5]int
+		data      [5]uint8
+		ratios    [1]float64
+		alives    [4]bool
+		zero      [0]uint8
+	)
+
+	fmt.Printf("names     : %#v\n", names)
+	fmt.Printf("distances : %#v\n", distances)
+	fmt.Printf("data      : %#v\n", data)
+	fmt.Printf("ratios    : %#v\n", ratios)
+	fmt.Printf("alives    : %#v\n", alives)
+	fmt.Printf("zero      : %#v\n", zero)
+
+	fmt.Printf("\nnames     : %T\n", names)
+	fmt.Printf("distances : %T\n", distances)
+	fmt.Printf("data      : %T\n", data)
+	fmt.Printf("ratios    : %T\n", ratios)
+	fmt.Printf("alives    : %T\n", alives)
+	fmt.Printf("zero      : %T\n", zero)
+
+	fmt.Printf("\nnames     : %q\n", names)
+	fmt.Printf("distances : %v\n", distances)
+	fmt.Printf("data      : %v\n", data)
+	fmt.Printf("ratios    : %v\n", ratios)
+	fmt.Printf("alives    : %v\n", alives)
+	fmt.Printf("zero      : %v\n", zero)
 }
