@@ -37,8 +37,16 @@ import "fmt"
 
 func main() {
 	books := [3]string{"Kafka's Revenge", "Stay Golden", "Everythingship"}
-	lower := [3]string{"kafka's revenge", "stay golden", "everythingship"}
-	upper := [3]string{"KAFKA'S REVENGE", "STAY GOLDEN", "EVERYTHINGSHIP"}
+
+	lower := books
+	lower[0] = "kafka's revenge"
+	lower[1] = "stay golden"
+	lower[2] = "everythingship"
+
+	upper := books
+	upper[0] = "KAFKA'S REVENGE"
+	upper[1] = "STAY GOLDEN"
+	upper[2] = "EVERYTHINGSHIP"
 
 	fmt.Println("books:", books)
 	fmt.Println("upper:", upper)
