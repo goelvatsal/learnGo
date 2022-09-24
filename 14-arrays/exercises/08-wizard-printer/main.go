@@ -8,6 +8,8 @@
 
 package main
 
+import "fmt"
+
 // ---------------------------------------------------------
 // EXERCISE: Wizard Printer
 //
@@ -30,4 +32,21 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	fmt.Printf("%-15s%-15s%-15s\n", "First Name", "Last Name", "Nickname")
+	fmt.Println("===========================================")
+
+	sci := [5][3]string{
+		{"Albert", "Einstein", "time"},
+		{"Isaac", "Newton", "apple"},
+		{"Stephen", "Hawking", "blackhole"},
+		{"Marie", "Curie", "radium"},
+		{"Charles", "Darwin", "fittest"},
+	}
+
+	for _, r := range sci {
+		for _, q := range r {
+			fmt.Printf("%-14s ", q)
+		}
+		fmt.Println()
+	}
 }
