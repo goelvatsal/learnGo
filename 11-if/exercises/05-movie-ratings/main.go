@@ -1,12 +1,10 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 // ---------------------------------------------------------
 // STORY
@@ -53,4 +51,20 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	if len(os.Args)-1 != 1 {
+		fmt.Println("Requires age.")
+		return
+	}
+
+	if n, err := strconv.Atoi(os.Args[1]); err != nil {
+		fmt.Printf("Cannot convert %q to an age.\n", os.Args[1])
+	} else if n < 0 {
+		fmt.Printf("Wrong age: %q\n", os.Args[1])
+	} else if n < 13 {
+		fmt.Println("PG-Rated")
+	} else if n >= 13 && n <= 17 {
+		fmt.Println("PG-13")
+	} else if n > 17 {
+		fmt.Println("R-Rated")
+	}
 }
