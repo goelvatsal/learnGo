@@ -8,6 +8,11 @@
 
 package main
 
+import (
+	"fmt"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Housing Prices
 //
@@ -76,4 +81,18 @@ Istanbul,500,10,5,1000000`
 
 		separator = ","
 	)
+
+	headerS := strings.Split(header, separator)
+	dataS := strings.Split(data, separator)
+
+	for _, v := range headerS {
+		fmt.Printf("%-15s ", v)
+	}
+	fmt.Println()
+	fmt.Println("===========================================================================")
+
+	for _, v := range dataS {
+		fmt.Printf("%-15s ", v)
+	}
+	fmt.Println()
 }
