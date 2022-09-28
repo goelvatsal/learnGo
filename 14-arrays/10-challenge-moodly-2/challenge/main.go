@@ -22,7 +22,7 @@ import (
 //
 //   1. Display the usage if the username or the mood is missing
 //
-//   2. Change the moods array to a multi-dimensional array.
+//   2. Change the moods array to a multidimensional array.
 //
 //      So, create two inner arrays:
 //        1. One for positive moods
@@ -60,20 +60,29 @@ import (
 
 func main() {
 	args := os.Args[1:]
-	if len(args) != 1 {
-		fmt.Println("[your name]")
+	if len(args) != 2 {
+		fmt.Println("[your name] [positive|negative]")
 		return
 	}
 
 	name := args[0]
 
-	moods := [...]string{
-		"happy 😀", "good 👍", "awesome 😎",
-		"sad 😞", "bad 👎", "terrible 😩",
+	moods := [...][3]string{
+		{"happy 😀", "good 👍", "awesome 😎"},
+		{"sad 😞", "bad 👎", "terrible 😩"},
 	}
 
 	rand.Seed(time.Now().UnixNano())
-	n := rand.Intn(len(moods))
+	var n int
 
-	fmt.Printf("%s feels %s\n", name, moods[n])
+	switch args[1] {
+	case "positive":
+		n = rand.Intn(len(moods[0]))
+		fmt.Printf("%s feels %s\n", name, moods[0][n])
+	case "negative":
+		n = rand.Intn(len(moods[1]))
+		fmt.Printf("%s feels %s\n", name, moods[1][n])
+	default:
+		fmt.Println("[your name] [positive|negative]")
+	}
 }
