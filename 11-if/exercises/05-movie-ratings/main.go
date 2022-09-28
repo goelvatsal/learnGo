@@ -62,7 +62,7 @@ func main() {
 		fmt.Printf("Wrong age: %q\n", os.Args[1])
 	} else if n < 13 {
 		fmt.Println("PG-Rated")
-	} else if n > 13 && n <= 17 {
+	} else if n >= 13 && n <= 17 {
 		fmt.Println("PG-13")
 	} else if n > 17 {
 		fmt.Println("R-Rated")
