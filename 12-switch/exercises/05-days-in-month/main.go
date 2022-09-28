@@ -1,11 +1,3 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
 
 import (
@@ -32,32 +24,20 @@ func main() {
 		return
 	}
 
-	year := time.Now().Year()
-	leap := year%4 == 0 && (year%100 != 0 || year%400 == 0)
+	year, month := time.Now().Year(), os.Args[1]
 
-	days, month := 28, os.Args[1]
-
-	if m := strings.ToLower(month); m == "april" ||
-		m == "june" ||
-		m == "september" ||
-		m == "november" {
-		days = 30
-	} else if m == "january" ||
-		m == "march" ||
-		m == "may" ||
-		m == "july" ||
-		m == "august" ||
-		m == "october" ||
-		m == "december" {
-		days = 31
-	} else if m == "february" {
-		if leap {
-			days = 29
+	switch m := strings.ToLower(month); m {
+	case "april", "june", "september", "november":
+		fmt.Printf("%q has 30 days.\n", month)
+	case "january", "march", "may", "july", "august", "october", "december":
+		fmt.Printf("%q has 31 days.\n", month)
+	case "february":
+		if year%4 == 0 && (year%100 != 0 || year%400 == 0) {
+			fmt.Printf("%q has 29 days.\n", month)
+		} else {
+			fmt.Printf("%q has 28 days.\n", month)
 		}
-	} else {
+	default:
 		fmt.Printf("%q is not a month.\n", month)
-		return
 	}
-
-	fmt.Printf("%q has %d days.\n", month, days)
 }

@@ -1,12 +1,10 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"strings"
+)
 
 // ---------------------------------------------------------
 // STORY
@@ -44,5 +42,22 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	if len(os.Args) != 3 {
+		fmt.Println("Usage: [command] [string]")
+		return
+	}
 
+	c, s := os.Args[1], os.Args[2]
+
+	switch c {
+	case "title":
+		fmt.Printf("Output: %q\n", strings.Title(s))
+	case "upper":
+		fmt.Printf("Output: %q\n", strings.ToUpper(s))
+	case "lower":
+		fmt.Printf("Output: %q\n", strings.ToLower(s))
+	default:
+		fmt.Printf("Unknown command: %q\n", c)
+		return
+	}
 }

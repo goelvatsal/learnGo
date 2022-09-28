@@ -1,12 +1,9 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Richter Scale #2
@@ -67,4 +64,31 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	if len(os.Args) != 2 {
+		fmt.Println("Give me the magnitude of the earthquake.")
+		return
+	}
+
+	switch m := os.Args[1]; m {
+	case "micro":
+		fmt.Printf("%s's richter scale is less than 2.0.\n", m)
+	case "very minor":
+		fmt.Printf("%s's richter scale is 2 to 2.9.\n", m)
+	case "minor":
+		fmt.Printf("%s's richter scale is 3 to 3.9.\n", m)
+	case "light":
+		fmt.Printf("%s's richter scale is 4 to 4.9.\n", m)
+	case "moderate":
+		fmt.Printf("%s's richter scale is 5 to 5.9.\n", m)
+	case "strong":
+		fmt.Printf("%s's richter scale is 6 to 6.9.\n", m)
+	case "major":
+		fmt.Printf("%s's richter scale is 7 to 7.9.\n", m)
+	case "great":
+		fmt.Printf("%s's richter scale is 8 to 9.9.\n", m)
+	case "massive":
+		fmt.Printf("%s's richter scale is 10+.\n", m)
+	default:
+		fmt.Printf("%s's richter scale is unknown.\n", m)
+	}
 }
