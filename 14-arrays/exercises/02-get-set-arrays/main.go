@@ -1,12 +1,6 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import "fmt"
 
 // ---------------------------------------------------------
 // EXERCISE: Get and Set Array Elements
@@ -123,4 +117,91 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	var (
+		names     [3]string
+		distances [5]int
+		data      [5]uint8
+		ratios    [1]float64
+		alives    [4]bool
+		zero      [0]uint8
+	)
+
+	names[0] = "Friend1"
+	names[1] = "Friend2"
+	names[2] = "Friend3"
+	distances[0] = 2
+	distances[1] = 10
+	distances[2] = 5
+	distances[3] = 20
+	distances[4] = 25
+	data[0] = 72
+	data[1] = 19
+	data[2] = 63
+	data[3] = 10
+	data[4] = 47
+	ratios[0] = 1.57
+	alives[0] = true
+	alives[1] = true
+	alives[2] = false
+	alives[3] = false
+
+	for i := 0; i < len(names); i++ {
+		fmt.Printf("names[%d]: %q\n", i, names[i])
+	}
+	fmt.Println()
+
+	for i := 0; i < len(distances); i++ {
+		fmt.Printf("distances[%d]: %d\n", i, distances[i])
+	}
+	fmt.Println()
+
+	for i := 0; i < len(data); i++ {
+		fmt.Printf("data[%d]: %v\n", i, data[i])
+	}
+	fmt.Println()
+
+	for i := 0; i < len(ratios); i++ {
+		fmt.Printf("ratios[%d]: %g\n", i, ratios[i])
+	}
+	fmt.Println()
+
+	for i := 0; i < len(alives); i++ {
+		fmt.Printf("alives[%d]: %t\n", i, alives[i])
+	}
+	fmt.Println()
+
+	for i := 0; i < len(zero); i++ {
+		fmt.Printf("zero[%d]: %d\n", i, zero[i])
+	}
+
+	// FOR RANGE STARTS HERE
+	fmt.Println("FOR RANGE STARTS HERE")
+	for i, v := range names {
+		fmt.Printf("names[%d]: %q\n", i, v)
+	}
+	fmt.Println()
+
+	for i, v := range distances {
+		fmt.Printf("distances[%d]: %d\n", i, v)
+	}
+	fmt.Println()
+
+	for i, v := range data {
+		fmt.Printf("data[%d]: %v\n", i, v)
+	}
+	fmt.Println()
+
+	for i, v := range ratios {
+		fmt.Printf("ratios[%d]: %g\n", i, v)
+	}
+	fmt.Println()
+
+	for i, v := range alives {
+		fmt.Printf("alives[%d]: %t\n", i, v)
+	}
+	fmt.Println()
+
+	for i, v := range zero {
+		fmt.Printf("zero[%d]: %q\n", i, v)
+	}
 }
