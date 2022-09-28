@@ -59,9 +59,7 @@ func main() {
 
 	for i := 1; i < len(os.Args); i++ {
 		n, err := strconv.Atoi(os.Args[i])
-		if err != nil {
-			continue
-		} else {
+		if err == nil {
 			lenArgs += 1
 		}
 		arr[i-1] = n
