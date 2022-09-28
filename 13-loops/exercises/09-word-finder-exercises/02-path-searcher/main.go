@@ -1,12 +1,11 @@
-// Copyright © 2018 Inanc Gumus
-// Learn Go Programming Course
-// License: https://creativecommons.org/licenses/by-nc-sa/4.0/
-//
-// For more tutorials  : https://learngoprogramming.com
-// In-person training  : https://www.linkedin.com/in/inancgumus/
-// Follow me on twitter: https://twitter.com/inancgumus
-
 package main
+
+import (
+	"fmt"
+	"os"
+	"path/filepath"
+	"strings"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Path Searcher
@@ -49,7 +48,7 @@ package main
 
 // ---------------------------------------------------------
 // BONUS EXERCISE
-//  Make your program cross platform. So, it can search
+//  Make your program cross-platform. So, it can search
 //  the path environment variable when you run it on
 //  a Windows or on a Mac (OS X) or on a Linux.
 //
@@ -71,7 +70,7 @@ package main
 //    #2 : "/sbin"
 //    #3 : "/Users/inanc/go/bin"
 //
-//  Or like this (case insensitive):
+//  Or like this (case-insensitive):
 //    go run main.go Us
 //
 //  Output:
@@ -80,4 +79,15 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	path, _ := os.LookupEnv("PATH")
+	query := filepath.SplitList(path)
+
+	for _, q := range os.Args[1:] {
+		for i, v := range query {
+			if strings.ToLower(q) == strings.ToLower(v) {
+				fmt.Printf("#%-2d: %q\n", i+1, query[i])
+				continue
+			}
+		}
+	}
 }
