@@ -61,9 +61,7 @@ func main() {
 	var a [5]int
 	for i := 1; i < len(os.Args); i++ {
 		n, err := strconv.Atoi(os.Args[i])
-		if err != nil {
-			continue
-		} else {
+		if err == nil {
 			a[i-1] = n
 		}
 	}
