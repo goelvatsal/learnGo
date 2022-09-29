@@ -61,9 +61,9 @@ func main() {
 		n, err := strconv.Atoi(os.Args[i])
 		if err == nil {
 			lenArgs += 1
+			avg += n
 		}
 		arr[i-1] = n
-		avg += n
 	}
 	avg = avg / lenArgs
 	fmt.Printf("Your numbers: %v\n", arr)
