@@ -78,12 +78,17 @@ func main() {
 New York,150,3,2,200000
 Paris,200,4,3,400000
 Istanbul,500,10,5,1000000`
-
 		separator = ","
 	)
 
 	headerS := strings.Split(header, separator)
 	dataS := strings.Split(data, separator)
+
+	//dataF := [20]string{}
+	//for i, v := range dataS {
+	//	//dataF[i] = strings.TrimSuffix(v, "\n")
+	//	dataF[i] = strings.TrimSpace(v)
+	//}
 
 	for _, v := range headerS {
 		fmt.Printf("%-15s ", v)
@@ -92,7 +97,8 @@ Istanbul,500,10,5,1000000`
 	fmt.Println("===========================================================================")
 
 	for _, v := range dataS {
-		fmt.Printf("%-15s ", v)
+		s := strings.TrimRight(v, "\n")
+		fmt.Printf("%-15s ", s)
 	}
 	fmt.Println()
 }
