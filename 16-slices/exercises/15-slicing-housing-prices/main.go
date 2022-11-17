@@ -8,6 +8,11 @@
 
 package main
 
+import (
+	"fmt"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Slicing the Housing Prices
 //
@@ -133,4 +138,20 @@ Istanbul,500,10,5,1000000`
 
 		separator = ","
 	)
+
+	dataT := strings.Replace(data, "\n", ",", -1)
+	dataS := strings.Split(dataT, separator)
+
+	for i := 0; i < 5; i++ {
+		fmt.Printf("%-15v ", dataS[i])
+	}
+	fmt.Println("\n")
+
+	for i, v := range dataS[5:] {
+		if i%5 == 0 && i != 0 {
+			fmt.Println()
+		}
+		fmt.Printf("%-15v ", v)
+	}
+	fmt.Println()
 }
