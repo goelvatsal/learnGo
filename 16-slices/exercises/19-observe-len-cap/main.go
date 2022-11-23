@@ -8,7 +8,10 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	s "github.com/inancgumus/prettyslice"
+)
 
 // ---------------------------------------------------------
 // EXERCISE: Observe the length and capacity
@@ -21,25 +24,37 @@ import "fmt"
 func main() {
 	// --- #1 ---
 	// 1. create a new slice named: games
+	//var games []string
 	//
 	// 2. print the length and capacity of the games slice
+	//fmt.Println(len(games))
+	//fmt.Println(cap(games))
 	//
 	// 3. comment out the games slice
 	//    then declare it as an empty slice
-	//
-	// 4. print the length and capacity of the games slice
-	//
-	// 5. append the elements: "pacman", "mario", "tetris", "doom"
-	//
-	// 6. print the length and capacity of the games slice
+	//games := []string{}
+	////
+	//// 4. print the length and capacity of the games slice
+	//fmt.Println("len:", len(games), "cap:", cap(games))
+	////
+	//// 5. append the elements: "pacman", "mario", "tetris", "doom"
+	//games = append(games, "pacman", "mario", "tetris", "doom")
+	////
+	//// 6. print the length and capacity of the games slice
+	//fmt.Println("len:", len(games), "cap:", cap(games))
 	//
 	// 7. comment out everything
 	//
 	// 8. declare the games slice again using a slice literal
 	//    (use the same elements from step 5)
+	games := []string{"pacman", "mario", "tetris", "doom"}
 
 	// --- #2 ---
 	// 1. use a loop from 0 to 4 to slice the games slice, element by element.
+	for i := range games {
+		l := games[:i]
+		fmt.Println("len:", len(l), "cap:", cap(l))
+	}
 	//
 	// 2. print its length and capacity along the way (in the loop).
 
@@ -51,19 +66,26 @@ func main() {
 	// --- #3 ---
 	// 1. slice the games slice up to zero element
 	//    (save the result to a new slice named: "zero")
-	//
+	zero := games[:0]
 	// 2. print the games and the new slice's len and cap
+	fmt.Println("len:", len(zero), "cap:", cap(zero))
 	//
 	// 3. append a new element to the new slice
+	zero = append(zero, "hello")
 	//
 	// 4. print the new slice's lens and caps
+	fmt.Println("len:", len(zero), "cap:", cap(zero))
 	//
 	// 5. repeat the last two steps 5 times (use a loop)
+	for i := 0; i < 5; i++ {
+		zero = append(zero, "hello")
+		fmt.Println("len:", len(zero), "cap:", cap(zero))
+	}
 	//
 	// 6. notice the growth of the capacity after the 5th append
 	//
 	// Use this slice's elements to append to the new slice:
-	// []string{"ultima", "dagger", "pong", "coldspot", "zetra"}
+	zero = append(zero, []string{"ultima", "dagger", "pong", "coldspot", "zetra"}...)
 	fmt.Println()
 
 	// zero := ...
@@ -80,6 +102,10 @@ func main() {
 	// and print its length and capacity along the way.
 	//
 	// observe that, the range loop only loops for the length, not the cap.
+	for i := range zero {
+		v := zero[:i]
+		fmt.Println("len:", len(v), "cap:", cap(v))
+	}
 	fmt.Println()
 
 	// for ... {
@@ -92,6 +118,11 @@ func main() {
 	//    the zero slice up to its capacity (use the cap function).
 	//
 	// 2. print the elements of the zero slice in the loop.
+	zero = games[:0]
+	for i := 0; i < cap(zero); i++ {
+		zero = append(zero, "hello")
+		fmt.Println("len:", len(zero), "cap:", cap(zero))
+	}
 	fmt.Println()
 
 	// zero = ...
@@ -101,10 +132,15 @@ func main() {
 
 	// --- #6 ---
 	// 1. change the one of the elements of the zero slice
+	zero[2] = "hi"
 	//
 	// 2. change the same element of the games slice
+	games[2] = "hi"
 	//
 	// 3. print the games and the zero slices
+	s.PrintBacking = true
+	s.Show("zero slice", zero)
+	s.Show("games slice", games)
 	//
 	// 4. observe that they don't have the same backing array
 	fmt.Println()
@@ -114,4 +150,6 @@ func main() {
 
 	// --- #7 ---
 	// try to slice the games slice beyond its capacity
+	sl := games[0:9]
+	fmt.Println(sl)
 }
