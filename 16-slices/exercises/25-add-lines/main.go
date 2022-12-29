@@ -78,7 +78,22 @@ func main() {
 	//
 	// ~~~ CHANGE THIS CODE ~~~
 	//
-	fix := lyric
+	a := append([]string{}, lyric[:9]...)
+	a[8] = "\n"
+
+	b := append([]string{}, lyric[8:19]...)
+	b[10] = "\n"
+
+	c := append([]string{}, lyric[18:]...)
+	c = append(c, "yesterday")
+	c[5] = "\n"
+
+	var total []string
+	total = append(total, a...)
+	total = append(total, b...)
+	total = append(total, c...)
+
+	fix := total
 	//
 	// ===================================
 
