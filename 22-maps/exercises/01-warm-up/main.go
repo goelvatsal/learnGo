@@ -8,6 +8,8 @@
 
 package main
 
+import "fmt"
+
 // ---------------------------------------------------------
 // EXERCISE: Warm-up
 //
@@ -30,17 +32,25 @@ func main() {
 	// #1
 	// Key        : Last name
 	// Element    : Phone number
+	var phone map[string]string
+	fmt.Printf("phone: %T\n", phone)
 
 	// #2
 	// Key        : Product ID
 	// Element    : Available / Unavailable
+	var products map[string]string
+	fmt.Printf("products: %T\n", products)
 
 	// #3
 	// Key        : Last name
 	// Element    : Phone numbers
+	var phones map[string]string
+	fmt.Printf("phones: %T\n", phones)
 
 	// #4
 	// Key        : Customer ID
 	// Element Key:
 	//   Key: Product ID Element: Quantity
+	var basket map[string]string
+	fmt.Printf("basket: %T\n", basket)
 }
