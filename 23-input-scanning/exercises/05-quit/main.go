@@ -8,6 +8,12 @@
 
 package main
 
+import (
+	"bufio"
+	"os"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Quit
 //
@@ -37,4 +43,16 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	var in = bufio.NewScanner(os.Stdin)
+	compare := map[string]bool{}
+
+	for in.Scan() {
+		n := in.Text()
+		_, ok := compare[strings.ToLower(n)]
+
+		if ok {
+			return
+		}
+		compare[n] = true
+	}
 }
