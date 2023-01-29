@@ -42,18 +42,18 @@ func main() {
 		in          = bufio.NewScanner(os.Stdin)
 		totalUnique int
 		total       int
-		unique      = map[string]bool{}
 	)
 
+	unique := map[string]bool{}
 	in.Split(bufio.ScanWords)
 	for in.Scan() {
 		word := in.Text()
+
 		_, ok := unique[word]
-		if ok {
-			totalUnique--
+		if !ok {
+			totalUnique++
 		}
 
-		totalUnique++
 		total++
 		unique[word] = true
 	}

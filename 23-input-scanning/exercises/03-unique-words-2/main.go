@@ -48,15 +48,19 @@ func main() {
 
 	var (
 		in          = bufio.NewScanner(os.Stdin)
-		totalUnique int
 		total       int
-		unique      = map[string]bool{}
+		totalUnique int
 	)
 
 	in.Split(bufio.ScanWords)
+	punctRemoveRgx := regexp.MustCompile("[^A-Za-z]+")
 	for in.Scan() {
-		regex := regexp.MustCompile("[^A-Za-z]+")
-		word := strings.ToLower(regex.ReplaceAllString(in.Text(), ""))
+		word := strings.ToLower(punctRemoveRgx.ReplaceAllString(in.Text(), ""))
+		if len(word) == 0 {
+			continue
+		}
+
+		unique := map[string]bool{}
 
 		_, ok := unique[word]
 		if ok {
