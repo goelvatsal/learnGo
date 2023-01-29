@@ -8,6 +8,13 @@
 
 package main
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: List
 //
@@ -29,6 +36,49 @@ package main
 //  quit commands.
 // ---------------------------------------------------------
 
+type item struct {
+	id    int
+	name  string
+	price int
+}
+
+type game struct {
+	item
+	genre string
+}
+
 func main() {
 	// use your solution from the previous exercise
+	var (
+		gow       = game{item{1, "god of war", 50}, "action adventure"}
+		xc        = game{item{2, "x-com 2", 30}, "strategy"}
+		minecraft = game{item{3, "minecraft", 20}, "sandbox"}
+		games     = []game{gow, xc, minecraft}
+		in        = bufio.NewScanner(os.Stdin)
+	)
+
+	fmt.Printf("Vatsal's game store has %d games.\n\n", len(games))
+
+	fmt.Println("> list: lists all the games")
+	fmt.Println("> quit: quits the program", "\n")
+
+	for in.Scan() {
+		query := strings.ToLower(in.Text())
+
+		switch query {
+		case "list":
+			fmt.Println()
+			for i, v := range games {
+				fmt.Printf("#%d: %-15q (%s) $%-10d\n", i+1, v.name, v.genre, v.price)
+			}
+
+			fmt.Println("\n> list: lists all the games")
+			fmt.Println("> quit: quits the program")
+		case "quit":
+			fmt.Println("\nbye!")
+			return
+		default:
+			return
+		}
+	}
 }
