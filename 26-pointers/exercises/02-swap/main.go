@@ -42,5 +42,33 @@
 
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
+	a, b := 6.28, 3.14
+	fmt.Printf("before: a: %g ----- b: %g\n", a, b)
+	a, b = swap(a, b)
+	fmt.Printf("after: a: %g ----- b: %g\n", a, b)
+
+	fa, fb := &a, &b
+	fmt.Printf("\nfa: %p (%g) ----- fb: %p (%g)\n", fa, *fa, fb, *fb)
+	ra, rb := swapAddress(fa, fb)
+	fmt.Printf("\nfa: %p (%g) ----- fb: %p (%g)\n", ra, *ra, rb, *rb)
+
+}
+
+func swap(a, b float64) (float64, float64) {
+	la, lb := &a, &b
+	la, lb = lb, la
+
+	return *la, *lb
+}
+
+func swapAddress(a, b *float64) (*float64, *float64) {
+	la, lb := &a, &b
+	la, lb = lb, la
+
+	return *la, *lb
 }
