@@ -8,6 +8,13 @@
 
 package main
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Grep Clone
 //
@@ -34,4 +41,15 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	var in = bufio.NewScanner(os.Stdin)
+
+	in.Split(bufio.ScanLines)
+	for in.Scan() {
+		for _, v := range strings.Fields(in.Text()) {
+			if strings.ToLower(v) == strings.ToLower(os.Args[1]) {
+				fmt.Println(in.Text())
+				break
+			}
+		}
+	}
 }
