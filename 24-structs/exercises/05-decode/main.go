@@ -8,6 +8,15 @@
 
 package main
 
+import (
+	"bufio"
+	"encoding/json"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Decode
 //
@@ -53,6 +62,90 @@ const data = `
         }
 ]`
 
+type exportGames struct {
+	Id    int
+	Name  string
+	Genre string
+	Price int
+}
+
+type JSONdata struct {
+	Id    int    `json:"id"`
+	Name  string `json:"name"`
+	Genre string `json:"genre"`
+	Price int    `json:"price"`
+}
+
+const options = `
+> list: lists all the games
+> id N: queries a game by id
+> save: exports the data to json and quits
+> quit: quits the program
+`
+
 func main() {
 	// use your solution from the previous exercise
+	var (
+		decodedJSON []JSONdata
+		in          = bufio.NewScanner(os.Stdin)
+	)
+
+	fmt.Printf("Vatsal's game store has %d decodedJSON.\n", len(decodedJSON))
+	fmt.Println(options)
+
+	err := json.Unmarshal([]byte(data), &decodedJSON)
+	if err != nil {
+		fmt.Println("ERR:", err)
+	}
+
+	for in.Scan() {
+		query := strings.ToLower(in.Text())
+
+		switch {
+		case query == "list":
+			fmt.Println()
+			for i, v := range decodedJSON {
+				fmt.Printf("#%d: %-15q (%s) $%-10d\n", i+1, v.Name, v.Genre, v.Price)
+			}
+			fmt.Println(options)
+		case query == "quit":
+			fmt.Println("\nbye!")
+			return
+		case strings.Contains(query, "id"):
+			contents := strings.Fields(query)
+			if len(contents) != 2 {
+				fmt.Println("\nwrong id")
+				fmt.Println(options)
+				break
+			}
+
+			id, err := strconv.Atoi(contents[1])
+			if err != nil {
+				fmt.Println("wrong id")
+				fmt.Println(options)
+				break
+			} else if id > len(decodedJSON) {
+				fmt.Println("\nSorry, we don't have that game!")
+				fmt.Println(options)
+				break
+			}
+			fmt.Printf("\n#%d: %-15q (%s) $%-10d\n", id, decodedJSON[id-1].Name, decodedJSON[id-1].Genre, decodedJSON[id-1].Price)
+			fmt.Println(options)
+		case query == "save":
+			exportGamesData := []exportGames{
+				{1, "god of war", "action adventure", 50},
+				{2, "x-com 2", "strategy", 40},
+				{3, "minecraft", "sandbox", 20},
+			}
+
+			out, err := json.MarshalIndent(exportGamesData, "", "\t")
+			if err != nil {
+				fmt.Println("ERR:", err)
+			}
+			fmt.Println(string(out))
+			return
+		default:
+			return
+		}
+	}
 }

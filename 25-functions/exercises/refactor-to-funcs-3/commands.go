@@ -9,6 +9,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"strings"
@@ -31,6 +32,8 @@ func runCmd(input string, games []game, byID map[int]game) bool {
 
 	case "id":
 		return cmdByID(cmd, games, byID)
+	case "save":
+		return cmdSave(games)
 	}
 	return true
 }
@@ -68,4 +71,10 @@ func cmdByID(cmd []string, games []game, byID map[int]game) bool {
 	printGame(g)
 
 	return true
+}
+
+func cmdSave(gameSlice []game) bool {
+	gameJson, _ := json.MarshalIndent(gameSlice, "", "\t")
+	fmt.Println(string(gameJson))
+	return false
 }

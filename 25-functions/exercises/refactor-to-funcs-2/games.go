@@ -8,7 +8,11 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 type item struct {
 	id    int
@@ -50,4 +54,91 @@ func indexByID(games []game) (byID map[int]game) {
 func printGame(g game) {
 	fmt.Printf("#%d: %-15q %-20s $%d\n",
 		g.id, g.name, "("+g.genre+")", g.price)
+}
+
+//1- Add a func that runs the given command from the user:
+//
+//        Name  : runCmd
+//        Inputs: input string, []game, map[int]game
+//        Output: bool
+//
+//        This func returns true if it wants the program to
+//        continue. When it returns false, the program will
+//        terminate. So, all the commands that it calls need
+//        to return true or false as well depending on whether
+//        they want to cause the program to terminate or not.
+//
+
+func runCmd(input string, games []game, byID map[int]game) bool {
+	games = load()
+	byID = indexByID(games)
+	fmt.Println()
+
+	cmd := strings.Fields(input)
+	if len(cmd) == 0 {
+		return false
+	}
+
+	switch cmd[0] {
+	case "quit":
+		cmdQuit()
+	case "list":
+		cmdList(games)
+	case "id":
+		cmdByID(cmd, games, byID)
+	}
+	return true
+}
+
+//     2- Add a func that handles the quit command:
+//
+//        Name  : cmdQuit
+//        Input : none
+//        Output: bool
+
+func cmdQuit() bool {
+	fmt.Println("bye!")
+	return false
+}
+
+// 3- Add a func that handles the list command:
+//
+//	Name  : cmdList
+//	Inputs: []game
+//	Output: bool
+func cmdList(gameSlice []game) bool {
+	for _, g := range gameSlice {
+		printGame(g)
+	}
+	return true
+}
+
+//     4- Add a func that handles the id command:
+//
+//        Name  : cmdByID
+//        Inputs: cmd []string, []game, map[int]game
+//        Output: bool
+
+func cmdByID(cmd []string, games []game, byID map[int]game) bool {
+	if len(cmd) != 2 {
+		fmt.Println("wrong id")
+		return false
+	}
+
+	id, err := strconv.Atoi(cmd[1])
+	if err != nil {
+		fmt.Println("wrong id")
+		return false
+	}
+
+	games = load()
+	byID = indexByID(games)
+	g, ok := byID[id]
+	if !ok {
+		fmt.Println("sorry. I don't have the game")
+		return false
+	}
+
+	printGame(g)
+	return true
 }

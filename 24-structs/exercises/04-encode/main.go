@@ -8,6 +8,15 @@
 
 package main
 
+import (
+	"bufio"
+	"encoding/json"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Encode
 //
@@ -31,7 +40,7 @@ package main
 //  Inanc's game store has 3 games.
 //
 //    > list   : lists all the games
-//    > id N   : queries a game by id
+//    > Id N   : queries a game by Id
 //    > save   : exports the data to json and quits
 //    > quit   : quits
 //
@@ -39,28 +48,113 @@ package main
 //
 //  [
 //          {
-//                  "id": 1,
-//                  "name": "god of war",
-//                  "genre": "action adventure",
-//                  "price": 50
+//                  "Id": 1,
+//                  "Name": "god of war",
+//                  "Genre": "action adventure",
+//                  "Price": 50
 //          },
 //          {
-//                  "id": 2,
-//                  "name": "x-com 2",
-//                  "genre": "strategy",
-//                  "price": 40
+//                  "Id": 2,
+//                  "Name": "x-com 2",
+//                  "Genre": "strategy",
+//                  "Price": 40
 //          },
 //          {
-//                  "id": 3,
-//                  "name": "minecraft",
-//                  "genre": "sandbox",
-//                  "price": 20
+//                  "Id": 3,
+//                  "Name": "minecraft",
+//                  "Genre": "sandbox",
+//                  "Price": 20
 //          }
 //  ]
 //
 // ---------------------------------------------------------
 
+type item struct {
+	id    int
+	name  string
+	price int
+}
+
+type game struct {
+	item
+	genre string
+}
+
+type exportGames struct {
+	Id    int
+	Name  string
+	Genre string
+	Price int
+}
+
+const options = `
+> list: lists all the games
+> Id N: queries a game by Id
+> save: exports the data to json and quits
+> quit: quits the program
+`
+
 func main() {
 	// use your solution from the previous exercise
+	var (
+		gow       = game{item{1, "god of war", 50}, "action adventure"}
+		xc        = game{item{2, "x-com 2", 30}, "strategy"}
+		minecraft = game{item{3, "minecraft", 20}, "sandbox"}
+		games     = []game{gow, xc, minecraft}
+		in        = bufio.NewScanner(os.Stdin)
+	)
 
+	fmt.Printf("Vatsal's game store has %d games.\n", len(games))
+	fmt.Println(options)
+
+	for in.Scan() {
+		query := strings.ToLower(in.Text())
+
+		switch {
+		case query == "list":
+			fmt.Println()
+			for i, v := range games {
+				fmt.Printf("#%d: %-15q (%s) $%-10d\n", i+1, v.name, v.genre, v.price)
+			}
+			fmt.Println(options)
+		case query == "quit":
+			fmt.Println("\nbye!")
+			return
+		case strings.Contains(query, "Id"):
+			contents := strings.Fields(query)
+			if len(contents) != 2 {
+				fmt.Println("\nwrong Id")
+				fmt.Println(options)
+				break
+			}
+
+			id, err := strconv.Atoi(contents[1])
+			if err != nil {
+				fmt.Println("wrong Id")
+				fmt.Println(options)
+				break
+			} else if id > len(games) {
+				fmt.Println("\nSorry, we don't have that game!")
+				fmt.Println(options)
+				break
+			}
+			fmt.Printf("\n#%d: %-15q (%s) $%-10d\n", id, games[id-1].name, games[id-1].genre, games[id-1].price)
+			fmt.Println(options)
+		case query == "save":
+			exportGamesData := []exportGames{
+				{1, "god of war", "action adventure", 50},
+				{2, "x-com 2", "strategy", 40},
+				{3, "minecraft", "sandbox", 20},
+			}
+
+			out, err := json.MarshalIndent(exportGamesData, "", "\t")
+			if err != nil {
+				fmt.Println("ERR:", err)
+			}
+			fmt.Println(string(out))
+			return
+		default:
+			return
+		}
+	}
 }

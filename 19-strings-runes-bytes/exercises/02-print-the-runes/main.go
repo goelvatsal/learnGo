@@ -8,6 +8,10 @@
 
 package main
 
+import (
+	"fmt"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Print the runes
 //
@@ -33,4 +37,20 @@ package main
 
 func main() {
 	const word = "console"
+
+	var bWord []byte
+	var dWord []byte
+	var hWord []byte
+	for _, v := range word {
+		fmt.Printf("%q\n", string(v))
+		fmt.Printf("\tdecimal: %d\n", v)
+		fmt.Printf("\thex: %x\n", v)
+		fmt.Printf("\tbinary: %b\n", v)
+		bWord = append(bWord, byte(v))
+		dWord = append(dWord, byte(v))
+		hWord = append(hWord, byte(v))
+	}
+	fmt.Println("printed using binary:", string(bWord))
+	fmt.Println("printed using decimal:", string(dWord))
+	fmt.Println("printed using hexadecimal:", string(hWord))
 }
