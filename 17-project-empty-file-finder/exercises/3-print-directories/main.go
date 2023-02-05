@@ -8,6 +8,10 @@
 
 package main
 
+import (
+	"os"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Find and write the names of subdirectories to a file
 //
@@ -68,4 +72,23 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	var total []byte
+	for i, v := range os.Args[1:] {
+		dir := os.Args[i+1]
+		files, err := os.ReadDir(v)
+		if err != nil {
+			continue
+		}
+		total = append(total, []byte(dir)...)
+		total = append(total, "\n"...)
+
+		//  MAKE RECURSIVE (SEARCH WITHIN SUBDIRS)
+		for _, f := range files {
+			if f.IsDir() {
+				file := "\t" + f.Name() + "/\n"
+				total = append(total, []byte(file)...)
+			}
+		}
+	}
+	os.WriteFile("dirs.txt", total, 0755)
 }

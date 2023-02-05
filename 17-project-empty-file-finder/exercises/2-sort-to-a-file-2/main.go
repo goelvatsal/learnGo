@@ -10,9 +10,9 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"sort"
+	"strconv"
 )
 
 // ---------------------------------------------------------
@@ -56,23 +56,27 @@ import (
 // ---------------------------------------------------------
 
 func main() {
-	items := os.Args[1:]
-	if len(items) == 0 {
-		fmt.Println("Send me some items and I will sort them")
+	l := len(os.Args) - 1
+	if l == 0 {
+		fmt.Println("Give me values.")
 		return
 	}
 
-	sort.Strings(items)
+	args := os.Args[1:]
+	sort.Strings(args)
+	var out []byte
+	counter := 1
 
-	var data []byte
-	for _, s := range items {
-		data = append(data, s...)
-		data = append(data, '\n')
+	for _, v := range args {
+		out = strconv.AppendInt(out, int64(counter), 10)
+		out = append(out, '.', ' ')
+		out = append(out, v...)
+		out = append(out, "\n"...)
+		counter++
 	}
 
-	err := ioutil.WriteFile("sorted.txt", data, 0644)
+	err := os.WriteFile("results.txt", out, 0755)
 	if err != nil {
 		fmt.Println(err)
-		return
 	}
 }
