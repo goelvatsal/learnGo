@@ -8,6 +8,14 @@
 
 package main
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Log Parser from Stratch
 //
@@ -46,4 +54,40 @@ package main
 // ---------------------------------------------------------
 
 func main() {
+	var (
+		in       = bufio.NewScanner(os.Stdin)
+		parseMap = map[string]int{}
+		total    int
+		lineNum  int
+	)
+
+	for in.Scan() {
+		line := strings.Fields(in.Text())
+		domain := line[0]
+		if len(line) != 2 {
+			fmt.Printf("wrong input: [%s] (line #%d)\n", domain, lineNum+1)
+			return
+		}
+
+		visits, err := strconv.Atoi(line[1])
+		if err != nil {
+			fmt.Printf("wrong input: \"%s\" (line #%d)\n", line[1], lineNum+1)
+			return
+		} else if visits < 0 {
+			fmt.Printf("wrong input: \"%v\" (line #%d)\n", visits, lineNum+1)
+			return
+		}
+
+		parseMap[domain] += visits
+		total += visits
+		lineNum++
+	}
+
+	fmt.Printf("%-30s %-30s\n", "DOMAIN", "VISITS")
+	fmt.Println(strings.Repeat("-", 40))
+
+	for k, m := range parseMap {
+		fmt.Printf("%-30s %-30d\n", k, m)
+	}
+	fmt.Printf("\nTOTAL %27d\n", total)
 }
