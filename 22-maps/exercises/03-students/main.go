@@ -8,6 +8,12 @@
 
 package main
 
+import (
+	"fmt"
+	"os"
+	"sort"
+)
+
 // ---------------------------------------------------------
 // EXERCISE: Students
 //
@@ -73,4 +79,57 @@ func main() {
 	// slytherin    scorpius
 	// bobo         wizardry
 	// bobo         unwanted
+
+	if len(os.Args) == 1 {
+		fmt.Println("Type a Hogwarts house name.")
+		return
+	}
+
+	gryffindor := map[string]string{
+		"weasley":    "gryffindor",
+		"hagrid":     "gryffindor",
+		"dumbledore": "gryffindor",
+		"lupin":      "gryffindor",
+	}
+
+	hufflepuff := map[string]string{
+		"wenlock":   "hufflepuff",
+		"scamander": "hufflepuff",
+		"helga":     "hufflepuff",
+		"diggory":   "hufflepuff",
+	}
+
+	ravenclaw := map[string]string{
+		"flitwick":    "ravenclaw",
+		"bagnold":     "ravenclaw",
+		"wildsmith":   "ravenclaw",
+		"montmorency": "ravenclaw",
+	}
+
+	slytherin := map[string]string{
+		"horace":   "slytherin",
+		"nigellus": "slytherin",
+		"higgs":    "slytherin",
+		"scorpius": "slytherin",
+	}
+
+	printStudents("gryffindor", gryffindor)
+	printStudents("hufflepuff", hufflepuff)
+	printStudents("ravenclaw", ravenclaw)
+	printStudents("slytherin", slytherin)
+}
+
+func printStudents(house string, houseMap map[string]string) {
+	if os.Args[1] == house {
+		keys := make([]string, 0, len(houseMap))
+		for key := range houseMap {
+			keys = append(keys, key)
+		}
+
+		sort.Strings(keys)
+		fmt.Printf(os.Args[1] + " students:\n\n")
+		for _, v := range keys {
+			fmt.Println(v)
+		}
+	}
 }
